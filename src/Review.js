@@ -9,14 +9,12 @@ export default class Review extends Component{
   }
   
   submitHandler = e => {
-    e.preventDefault()
     console.log(this.state)
   }
   
   change = e => {
     this.setState({[e.target.name]: e.target.value});
   };
-  
   
   render() {
     return (
@@ -25,7 +23,7 @@ export default class Review extends Component{
           <div className="col-sm-12">
           <h1 align="center">Bryan Zheng SWE 432</h1>
           <h1 align="center">Bathroom Review</h1>
-            <form onSubmit={this.submitHandler}>
+            <form method="post" action="https://testgit123.herokuapp.com/a7" onSubmit={this.submitHandler}>
             <div className= "building" align="center">
                 <p>Please enter building name:</p>
                 <input type="text" name = "building" value ={this.state.building} onChange ={e => this.change(e)}/>
