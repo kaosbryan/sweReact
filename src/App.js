@@ -1,22 +1,25 @@
 import React from 'react';
+import Review from "./Review";
 import './App.css';
-import Fetcher from './Fetcher';
-import Hooks from './Hooks';
 
-function App() {
-  return (
-    <div className="App">
-      <Hooks/>
-    </div>
+const publicURL = 'https://swe432tomcat.herokuapp.com';
+export const getLocationUrlData = () => {
+  return {
+      url:
+          process.env.NODE_ENV === 'production'?
+          publicURL
+          :`${window.location.origin}`,
+      hash: `${window.location.hash}`
+  };
+};
+export const servicePath ='/a7';
+
+function App(){
+  return(
+     <div>
+        <Review />
+     </div>
   );
 }
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <Fetcher url={'https://randomuser.me/api/'}/>
-//     </div>
-//   );
-// }
 
 export default App;
